@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- META -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- TITLE -->
+    <title>Bot Control Server</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/index.css">
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- MAIN CONTAINER -->
+    <div class="dashboard-container" id="dashboardContainer">
+
+        <!-- ========================= -->
+        <!-- NAVBAR -->
+        <!-- ========================= -->
+        <header class="navbar" id="navbar">
+
+            <!-- LOGO -->
+            <div class="logo-section" id="logoSection">
+                <h1 class="logo-text" id="logoText">
+                    BOT CONTROL SERVER
+                </h1>            
+            </div>
+            
+            <!-- TOGGLE MENU -->
+            <div class="sidebar" id="sidebar">
+
+    <ul class="sidebar-list">
+
+        <li>
+            <a href="index.html" class="sidebar-link">
+                <i class="fa-solid fa-house"></i>
+                Home
+            </a>
+        </li>
+
+        <li>
+            <a href="bots.html" class="sidebar-link">
+                <i class="fa-solid fa-robot"></i>
+                Bots
+            </a>
+        </li>
+
+        <li>
+            <a href="commands.html" class="sidebar-link">
+                <i class="fa-solid fa-terminal"></i>
+                Commands
+            </a>
+        </li>
+
+        <li>
+            <a href="logs.html" class="sidebar-link">
+                <i class="fa-solid fa-file-lines"></i>
+                Logs
+            </a>
+        </li>
+
+        <li>
+            <a href="settings.html" class="sidebar-link">
+                <i class="fa-solid fa-gear"></i>
+                Settings
+            </a>
+        </li>
+
+        <li>
+            <a href="register.html" class="sidebar-link">
+                <i class="fa-solid fa-user-plus"></i>
+                Register
+            </a>
+        </li>
+
+    </ul>
+
+</div>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+
+            <!-- NAV LINKS -->
+            <nav class="nav-menu" id="navMenu">
+                <ul class="nav-list" id="navList">
+
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link active" id="homeLink">
+                            Home
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="bots.html" class="nav-link" id="botsLink">
+                            Bots
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="commands.html" class="nav-link" id="commandsLink">
+                            Commands
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="logs.html" class="nav-link" id="logsLink">
+                            Logs
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="settings.html" class="nav-link" id="settingsLink">
+                            Settings
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="register.html" class="nav-link" id="registerLink">
+                            Register
+                        </a> 
+                    </li>                 
+                </ul>
+            </nav>
+
+            <!-- ADMIN SECTION -->
+            <div class="admin-section" id="adminSection">
+
+                <div class="admin-info" id="adminInfo">
+                    <span class="admin-name" id="adminName">
+                        Admin
+                    </span>
+                </div>
+
+               <!-- <button class="logout-btn" id="logoutBtn">
+
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <a href="login.html" class="logout-link" id="logoutLink"> Login
+                </button> -->
+
+            </div>
+
+        </header>
+        
+        <!-- ========================= -->
+        <!-- MAIN CONTENT -->
+        <!-- ========================= -->
+        <main class="main-content" id="mainContent">
+
+            <!-- PAGE TITLE -->
+            <section class="page-header" id="pageHeader">
+
+                <h2 class="page-title" id="pageTitle">
+                    Dashboard Overview
+                </h2>
+
+                <p class="page-subtitle" id="pageSubtitle">
+                    Monitor and control all your Telegram and WhatsApp bots.
+                </p>
+
+            </section>
+
+            <!-- ========================= -->
+            <!-- STATUS CARDS -->
+            <!-- ========================= -->
+            <section class="status-section" id="statusSection">
+
+                <!-- SERVER STATUS -->
+                <div class="status-card server-card" id="serverStatusCard">
+                   
+                    <div class="card-icon">
+                        <i class="fa-solid fa-server"></i>
+                    </div>
+
+                    <div class="card-info">
+
+                        <h3 class="card-title">
+                            Server Status
+                        </h3>
+
+                        <p class="card-value online-status" id="serverStatus">
+                            ONLINE
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- ACTIVE BOTS -->
+                <div class="status-card bots-card" id="activeBotsCard">
+
+                    <div class="card-icon">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+
+                    <div class="card-info">
+
+                        <h3 class="card-title">
+                            Active Bots
+                        </h3>
+
+                        <p class="card-value" id="activeBotsCount">
+                            5
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- TELEGRAM BOTS -->
+                <div class="status-card telegram-card" id="telegramBotsCard">
+
+                    <div class="card-icon">
+                        <i class="fa-brands fa-telegram"></i>
+                    </div>
+
+                    <div class="card-info">
+
+                        <h3 class="card-title">
+                            Telegram Bots
+                        </h3>
+
+                        <p class="card-value" id="telegramBotsCount">
+                            3
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- WHATSAPP BOTS -->
+                <div class="status-card whatsapp-card" id="whatsappBotsCard">
+
+                    <div class="card-icon">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+
+                    <div class="card-info">
+
+                        <h3 class="card-title">
+                            WhatsApp Bots
+                        </h3>
+
+                        <p class="card-value" id="whatsappBotsCount">
+                            2
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- ========================= -->
+            <!-- QUICK ACTIONS -->
+            <!-- ========================= -->
+            <section class="actions-section" id="actionsSection">
+
+                <div class="section-header">
+                    <h3 class="section-title">
+                        Quick Actions
+                    </h3>
+                </div>
+
+                <div class="actions-grid" id="actionsGrid">
+
+                    <button class="action-btn start-btn" id="startBotBtn">
+                        <i class="fa-solid fa-play"></i>
+                        Start
+                    </button>
+
+                    <button class="action-btn stop-btn" id="stopBotBtn">
+                        <i class="fa-solid fa-stop"></i>
+                        Stop
+                    </button>
+
+                    <button class="action-btn restart-btn" id="restartBotBtn">
+                        <i class="fa-solid fa-rotate-right"></i>
+                        Restart
+                    </button>
+
+                    <button class="action-btn reload-btn" id="reloadBotBtn">
+                        <i class="fa-solid fa-arrows-rotate"></i>
+                        Reload
+                    </button>
+
+                    <button class="action-btn delete-btn" id="deleteBotBtn">
+                        <i class="fa-solid fa-trash"></i>
+                        Delete
+                    </button>
+
+                </div>
+
+            </section>
+
+            <!-- ========================= -->
+            <!-- BOTS TABLE -->
+            <!-- ========================= -->
+            <section class="bots-section" id="botsSection">
+
+                <div class="section-header">
+                    <h3 class="section-title">
+                        Bot Activity
+                    </h3>
+                </div>
+
+                <div class="table-container" id="tableContainer">
+
+                    <table class="bots-table" id="botsTable">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Bot Name</th>
+                                <th>Platform</th>
+                                <th>Status</th>
+                                <th>Uptime</th>
+                                <th>Actions</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="botsTableBody">
+
+                            <tr>
+
+                                <td>WeatherBot</td>
+                                <td>Telegram</td>
+                                <td>
+                                    <span class="table-status running-status">
+                                        Running
+                                    </span>
+                                </td>
+                                <td>4h 12m</td>
+
+                                <td>
+
+                                    <button class="table-btn">
+                                        View
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>SalesBot</td>
+                                <td>WhatsApp</td>
+                                <td>
+                                    <span class="table-status offline-status">
+                                        Offline
+                                    </span>
+                                </td>
+                                <td>--</td>
+
+                                <td>
+
+                                    <button class="table-btn">
+                                        View
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+            <!-- ========================= -->
+            <!-- LIVE LOGS -->
+            <!-- ========================= -->
+            <section class="logs-section" id="logsSection">
+
+                <div class="section-header">
+
+                    <h3 class="section-title">
+                        Live Server Logs
+                    </h3>
+
+                </div>
+
+                <div class="logs-container" id="logsContainer">
+
+                    <div class="log-entry">
+                        [12:01] Server started successfully...
+                    </div>
+
+                    <div class="log-entry">
+                        [12:02] Telegram bot connected...
+                    </div>
+
+                    <div class="log-entry">
+                        [12:04] WhatsApp bot initialized...
+                    </div>
+
+                    <div class="log-entry">
+                        [12:05] Incoming command received...
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- JAVASCRIPT -->
+      <script src="/js/index.js"></script>
+
+</body>
+</html>

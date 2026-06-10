@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- META -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- TITLE -->
+    <title>Bot Server Login</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/login.css">
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- MAIN LOGIN CONTAINER -->
+    <div class="login-container">
+
+        <!-- LOGIN CARD -->
+        <div class="login-card">
+
+            <!-- LOGO -->
+            <div class="logo-section">
+
+                <i class="fa-solid fa-robot"></i>
+
+                <h1>BOT CONTROL SERVER</h1>
+
+                <p>Secure Admin Authentication</p>
+
+            </div>
+
+            <!-- LOGIN FORM -->
+            <form id="loginForm">
+
+                <!-- USERNAME -->
+                <div class="input-group">
+
+                    <label>Username</label>
+                     
+                    <div class="input-wrapper">
+
+                        <i class="fa-solid fa-user"></i>
+
+                        <input
+                            type="text"
+                            id="username"
+                            placeholder="Enter username"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+                <!-- PASSWORD -->
+                <div class="input-group">
+
+                    <label>Password</label>
+
+                    <div class="input-wrapper">
+
+                        <i class="fa-solid fa-lock"></i>
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Enter password"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+                <!-- LOGIN BUTTON -->
+                <button type="submit" class="login-btn" id="loginBtn">
+
+                    <i class="fa-solid fa-right-to-bracket"></i>
+
+                    Login
+
+                </button>
+
+                <!-- OR DIVIDER -->
+<div class="or-divider">
+    <span>OR login with</span>
+</div>
+
+<!-- SOCIAL LOGIN BUTTONS -->
+<div class="social-login">
+
+    <button id="googleLoginBtn" class="google-btn">
+
+        <i class="fa-brands fa-google"></i>
+
+        Google
+
+    </button>
+
+
+    <button id="facebookLoginBtn" class="facebook-btn">
+
+        <i class="fa-brands fa-facebook"></i>
+
+        Facebook
+
+    </button>
+
+    <button id="githubLoginBtn" class="github-btn">
+
+        <i class="fa-brands fa-github"></i>
+
+        GitHub
+
+    </button>
+</div>
+    <!-----register--->
+    <div class="register">
+
+        <p>Don't have an account? <a href="register.html" id="registerLink">Register here</a></p>
+    </div>
+</div>
+
+            </form>
+
+            <!-- MESSAGE -->
+            <div class="message-box" id="messageBox"></div>
+
+        </div>
+
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="js/login.js"></script>
+
+</body>
+</html>

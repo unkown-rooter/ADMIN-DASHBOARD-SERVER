@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>Register</title>
+
+    <link rel="stylesheet" href="/css/register.css">
+
+</head>
+
+<body>
+
+<!-- =====================================================
+     REGISTER CONTAINER
+===================================================== -->
+
+<div class="register-container">
+
+    <form id="registerForm" class="register-box">
+
+        <h1>Create Account 🚀</h1>
+
+        <p>Join Bot Control Server</p>
+
+        <!-- NAME -->
+        <input
+            type="text"
+            id="name"
+            placeholder="Full Name"
+            required
+        >
+        <!-- lets change email to username -->
+        <!-- USERNAME -->
+        <input
+            type="text"
+            id="username"
+            placeholder="Username"
+            required
+        >
+
+        <!-- PASSWORD -->
+        <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            required
+        >
+
+        <!-- CONFIRM PASSWORD -->
+        <input
+            type="password"
+            id="confirmPassword"
+            placeholder="Confirm Password"
+            required
+        >
+
+        <!-- BUTTON -->
+        <button type="submit">
+            Register
+        </button>
+      
+<!-- MESSAGE BOX -->
+<div id="messageBox" class="message-box">
+
+</div>
+
+        <!-- OR SIGN UP WITH -->
+<div class="or-divider">
+    <span>OR sign up with</span>
+</div>
+
+<div class="social-register">
+
+    <button id="googleSignupBtn" class="google-btn">
+
+        <i class="fa-brands fa-google"></i>
+
+        Google
+
+    </button>
+
+
+    <button id="facebookSignupBtn" class="facebook-btn">
+
+        <i class="fa-brands fa-facebook"></i>
+
+        Facebook
+
+    </button>
+
+    <button id="githubSignupBtn" class="github-btn">
+
+        <i class="fa-brands fa-github"></i>
+
+        GitHub
+    </button>
+
+    
+
+</div>
+
+        <p class="login-link">
+
+            Already have an account?
+
+            <a href="login.html">Login</a>
+
+        </p>
+
+    </form>
+
+</div>
+
+
+<script src="js/register.js"></script>
+
+</body>
+
+</html>

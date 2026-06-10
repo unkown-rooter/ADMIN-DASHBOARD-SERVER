@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- META -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- TITLE -->
+    <title>Bot Management</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/bots.css">
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- MAIN CONTAINER -->
+    <div class="bots-container">
+
+        <!-- HEADER -->
+        <header class="bots-header">
+
+            <div class="header-left">
+
+                <h1>
+                    <i class="fa-solid fa-robot"></i>
+                    BOT MANAGEMENT
+                </h1>
+
+                <p>
+                    Manage Telegram and WhatsApp bots
+                </p>
+
+            </div>
+
+            <!-- ADD BOT BUTTON -->
+            <button class="add-bot-btn" id="openAddBotModalBtn">
+
+                <i class="fa-solid fa-plus"></i>
+
+                Add Bot
+
+            </button>
+
+        </header>
+
+        <!-- STATISTICS -->
+        <section class="stats-section">
+
+            <div class="stat-card">
+
+                <h3>Total Bots</h3>
+
+                <p id="totalBotsCount">0</p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h3>Running Bots</h3>
+
+                <p id="runningBotsCount">0</p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h3>Offline Bots</h3>
+
+                <p id="offlineBotsCount">0</p>
+
+            </div>
+
+        </section>
+
+        <!-- SEARCH -->
+        <section class="search-section">
+
+            <div class="search-box">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search bots..."
+                >
+
+            </div>
+
+        </section>
+
+        <!-- BOTS GRID -->
+        <section class="bots-grid" id="botsGrid">
+
+            <!-- Bots injected by JS -->
+
+        </section>
+
+    </div>
+
+    <!-- ========================================= -->
+    <!-- ADD BOT MODAL -->
+    <!-- ========================================= -->
+
+    <div class="modal-overlay" id="modalOverlay">
+
+        <div class="modal">
+
+            <div class="modal-header">
+
+                <h2>Add New Bot</h2>
+
+                <button id="closeModalBtn">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </div>
+
+            <!-- BOT FORM -->
+            <form id="addBotForm">
+
+                <!-- BOT NAME -->
+                <div class="form-group">
+
+                    <label>Bot Name</label>
+
+                    <input
+                        type="text"
+                        id="botName"
+                        required
+                    >
+
+                </div>
+
+                <!-- PLATFORM -->
+                <div class="form-group">
+
+                    <label>Platform</label>
+
+                    <select id="botPlatform">
+
+                        <option value="Telegram">
+                            Telegram
+                        </option>
+
+                        <option value="WhatsApp">
+                            WhatsApp
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <!-- BOT TOKEN -->
+                <div class="form-group">
+
+                    <label>Bot Token</label>
+
+                    <input
+                        type="text"
+                        id="botToken"
+                        required
+                    >
+
+                </div>
+
+                <!-- SUBMIT -->
+                <button type="submit" class="submit-btn">
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    Create Bot
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="js/bots.js"></script>
+
+</body>
+</html>

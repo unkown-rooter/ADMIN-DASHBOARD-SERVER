@@ -1,0 +1,185 @@
+body {
+
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+
+    background: radial-gradient(circle at top, #0f172a, #0b1220);
+
+    color: white;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    height: 100vh;
+
+}
+
+
+/* CONTAINER */
+.register-box {
+
+    background: #111b2e;
+
+    padding: 30px;
+
+    border-radius: 15px;
+
+    width: 350px;
+
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+}
+
+
+/* TITLE */
+.register-box h1 {
+
+    margin: 0;
+
+}
+.register-box p {
+    margin: 0;
+    font-size: 14px;
+    color: linear-gradient(135deg, rgb(210, 154, 218), #c50aeb);
+}
+
+
+/* INPUTS */
+.register-box input {
+
+    padding: 12px;
+
+    border-radius: 10px;
+
+    border: 1px solid rgba(255,255,255,0.1);
+
+    background: #0b1220;
+
+    color: white;
+
+}
+
+
+.register-box input:focus {
+
+    outline: none;
+
+    border-color: #3b82f6;
+}
+
+.register-box button {
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+
+    color: white;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+}
+.register-box button:hover {
+
+    background: linear-gradient(135deg, #12e7b9, #3b82f6);
+
+}
+.or-divider {
+    text-align: center;
+    margin: 15px 0;
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+
+.social-register {
+    display: flex;
+    gap: 10px;
+}
+
+.google-btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background: #db4437;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.facebook-btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background: #1877f2;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.github-btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background: #333;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* GOOGLE ICON */
+.google-btn i {
+
+    margin-right: 8px;
+
+}
+
+/* FACEBOOK ICON */
+.facebook-btn i {
+
+    margin-right: 8px;
+
+}
+
+/* GITHUB ICON */
+.github-btn i {
+
+    margin-right: 8px;
+
+}
+/* LOGIN LINK */
+.login-link {
+
+    font-size: 13px;
+
+    text-align: center;
+
+    color: #94a3b8;
+
+}
+
+.login-link a {
+
+    color: #3b82f6;
+
+    text-decoration: none;
+
+}

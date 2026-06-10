@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>Live Logs</title>
+
+    <link rel="stylesheet" href="/css/logs.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- =====================================================
+        LOGS CONTAINER
+    ====================================================== -->
+
+    <div class="logs-container">
+
+        <!-- HEADER -->
+        <header class="logs-header">
+
+            <div>
+
+                <h1>
+
+                    <i class="fa-solid fa-wave-square"></i>
+
+                    LIVE SERVER LOGS
+
+                </h1>
+
+                <p>Monitor bots, server and system activity</p>
+
+            </div>
+
+            <button id="clearLogsBtn">
+
+                <i class="fa-solid fa-trash"></i>
+
+                Clear Logs
+
+            </button>
+
+        </header>
+
+
+        <!-- =====================================================
+            FILTER BAR
+        ====================================================== -->
+
+        <section class="logs-filters">
+
+            <input
+                type="text"
+                id="logSearch"
+                placeholder="Search logs..."
+            >
+
+            <select id="logFilter">
+
+                <option value="all">All</option>
+
+                <option value="info">Info</option>
+
+                <option value="success">Success</option>
+
+                <option value="warning">Warning</option>
+
+                <option value="error">Error</option>
+
+            </select>
+
+            <label class="auto-scroll">
+
+                <input type="checkbox" id="autoScroll" checked>
+
+                Auto Scroll
+
+            </label>
+
+        </section>
+
+
+        <!-- =====================================================
+            LOG BOX
+        ====================================================== -->
+
+        <div class="logs-box" id="logsBox">
+
+            <!-- Logs injected here -->
+
+        </div>
+
+    </div>
+
+
+    <script src="js/logs.js"></script>
+
+</body>
+
+</html>

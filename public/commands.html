@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- META -->
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <!-- TITLE -->
+    <title>Command Center</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/commands.css">
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- =====================================================
+         MAIN CONTAINER
+    ====================================================== -->
+
+    <div class="commands-container">
+
+        <!-- =====================================================
+             PAGE HEADER
+        ====================================================== -->
+
+        <header class="commands-header">
+
+            <!-- LEFT -->
+            <div class="header-left">
+
+                <h1>
+
+                    <i class="fa-solid fa-terminal"></i>
+
+                    COMMAND CENTER
+
+                </h1>
+
+                <p>
+
+                    Manage bot commands, prefixes and responses
+
+                </p>
+
+            </div>
+
+            <!-- RIGHT -->
+            <div class="header-right">
+
+                <!-- ADD COMMAND -->
+                <button
+                    class="add-command-btn"
+                    id="openCommandModalBtn"
+                >
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    Add Command
+
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- =====================================================
+             COMMAND STATISTICS
+        ====================================================== -->
+
+        <section class="command-stats-section">
+
+            <!-- TOTAL COMMANDS -->
+            <div class="command-stat-card">
+
+                <div class="stat-icon blue">
+
+                    <i class="fa-solid fa-code"></i>
+
+                </div>
+
+                <div class="stat-info">
+
+                    <h3>Total Commands</h3>
+
+                    <p id="totalCommandsCount">
+                        0
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- ACTIVE COMMANDS -->
+            <div class="command-stat-card">
+
+                <div class="stat-icon green">
+
+                    <i class="fa-solid fa-toggle-on"></i>
+
+                </div>
+
+                <div class="stat-info">
+
+                    <h3>Enabled</h3>
+
+                    <p id="enabledCommandsCount">
+                        0
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- DISABLED -->
+            <div class="command-stat-card">
+
+                <div class="stat-icon red">
+
+                    <i class="fa-solid fa-toggle-off"></i>
+
+                </div>
+
+                <div class="stat-info">
+
+                    <h3>Disabled</h3>
+
+                    <p id="disabledCommandsCount">
+                        0
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- PREFIXES -->
+            <div class="command-stat-card">
+
+                <div class="stat-icon orange">
+
+                    <i class="fa-solid fa-at"></i>
+
+                </div>
+
+                <div class="stat-info">
+
+                    <h3>Prefixes</h3>
+
+                    <p id="prefixesCount">
+                        0
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SEARCH + FILTERS
+        ====================================================== -->
+
+        <section class="search-filter-section">
+
+            <!-- SEARCH -->
+            <div class="search-box">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="text"
+                    id="commandSearchInput"
+                    placeholder="Search commands..."
+                >
+
+            </div>
+
+            <!-- FILTER -->
+            <div class="filter-group">
+
+                <!-- PLATFORM -->
+                <select id="platformFilter">
+
+                    <option value="All">
+                        All Platforms
+                    </option>
+
+                    <option value="Telegram">
+                        Telegram
+                    </option>
+
+                    <option value="WhatsApp">
+                        WhatsApp
+                    </option>
+
+                </select>
+
+                <!-- STATUS -->
+                <select id="statusFilter">
+
+                    <option value="All">
+                        All Status
+                    </option>
+
+                    <option value="Enabled">
+                        Enabled
+                    </option>
+
+                    <option value="Disabled">
+                        Disabled
+                    </option>
+
+                </select>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             COMMAND GRID
+        ====================================================== -->
+
+        <section
+            class="commands-grid"
+            id="commandsGrid"
+        >
+
+            <!-- Commands injected via JS -->
+
+        </section>
+
+    </div>
+
+
+    <!-- =====================================================
+         ADD COMMAND MODAL
+    ====================================================== -->
+
+    <div
+        class="modal-overlay"
+        id="commandModalOverlay"
+    >
+
+        <div class="command-modal">
+
+            <!-- HEADER -->
+            <div class="modal-header">
+
+                <h2>
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    Create Command
+
+                </h2>
+
+                <button id="closeCommandModalBtn">
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                </button>
+
+            </div>
+
+
+            <!-- =====================================================
+                 COMMAND FORM
+            ====================================================== -->
+
+            <form id="commandForm">
+
+                <!-- COMMAND NAME -->
+                <div class="form-group">
+
+                    <label>
+
+                        Command Name
+
+                    </label>
+
+                    <input
+                        type="text"
+                        id="commandName"
+                        placeholder="start"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- PREFIX -->
+                <div class="form-group">
+
+                    <label>
+
+                        Prefix
+
+                    </label>
+
+                    <select id="commandPrefix">
+
+                        <option value="/">
+                            /
+                        </option>
+
+                        <option value=".">
+                            .
+                        </option>
+
+                        <option value="!">
+                            !
+                        </option>
+
+                        <option value="?">
+                            ?
+                        </option>
+
+                        <option value="#">
+                            #
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- PLATFORM -->
+                <div class="form-group">
+
+                    <label>
+
+                        Platform
+
+                    </label>
+
+                    <select id="commandPlatform">
+
+                        <option value="Telegram">
+                            Telegram
+                        </option>
+
+                        <option value="WhatsApp">
+                            WhatsApp
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- CATEGORY -->
+                <div class="form-group">
+
+                    <label>
+
+                        Category
+
+                    </label>
+
+                    <select id="commandCategory">
+
+                        <option value="General">
+                            General
+                        </option>
+
+                        <option value="Admin">
+                            Admin
+                        </option>
+
+                        <option value="Moderation">
+                            Moderation
+                        </option>
+
+                        <option value="AI">
+                            AI
+                        </option>
+
+                        <option value="Games">
+                            Games
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- BOT -->
+                <div class="form-group">
+
+                    <label>
+
+                        Assign Bot
+
+                    </label>
+
+                    <select id="commandBot">
+
+                        <option value="">
+                            Select Bot
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- RESPONSE -->
+                <div class="form-group">
+
+                    <label>
+
+                        Command Response
+
+                    </label>
+
+                    <textarea
+                        id="commandResponse"
+                        rows="6"
+                        placeholder="Welcome buddy 😎🔥"
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <!-- ENABLE TOGGLE -->
+                <div class="toggle-container">
+
+                    <span>
+
+                        Enable Command
+
+                    </span>
+
+                    <label class="switch">
+
+                        <input
+                            type="checkbox"
+                            id="commandEnabled"
+                            checked
+                        >
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <!-- SUBMIT -->
+                <button
+                    type="submit"
+                    class="create-command-btn"
+                >
+
+                    <i class="fa-solid fa-floppy-disk"></i>
+
+                    Save Command
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="js/commands.js"></script>
+
+</body>
+</html>

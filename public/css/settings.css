@@ -1,0 +1,261 @@
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root {
+
+    --bg: #0b1220;
+
+    --card: #111b2e;
+
+    --text: #ffffff;
+
+    --muted: #94a3b8;
+
+    --border: rgba(255,255,255,0.08);
+
+    --green: #22c55e;
+
+    --red: #ef4444;
+
+    --blue: #3b82f6;
+
+}
+
+
+/* =========================================================
+   BODY
+========================================================= */
+
+body {
+
+    margin: 0;
+
+    font-family: Poppins, sans-serif;
+
+    background: radial-gradient(circle at top, #0f172a, #0b1220);
+
+    color: var(--text);
+
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.settings-container {
+
+    padding: 40px;
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.settings-header h1 {
+
+    font-size: 2rem;
+
+    margin-bottom: 5px;
+
+}
+
+.settings-header p {
+
+    color: var(--muted);
+
+}
+
+
+/* =========================================================
+   STATUS GRID
+========================================================= */
+
+.status-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+
+    gap: 15px;
+
+    margin: 25px 0;
+
+}
+
+.status-card {
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.settings-form {
+
+    background: var(--card);
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    border: 1px solid var(--border);
+
+}
+
+
+/* FORM GROUP */
+.form-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+    margin-bottom: 15px;
+
+}
+
+.form-group label {
+
+    margin-bottom: 6px;
+
+    color: var(--muted);
+
+}
+
+
+/* INPUTS */
+.form-group input,
+.form-group select {
+
+    padding: 10px;
+
+    border-radius: 10px;
+
+    border: 1px solid var(--border);
+
+    background: #0b1220;
+
+    color: white;
+
+}
+
+
+/* TOGGLES */
+.toggle-section {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin: 20px 0;
+
+}
+
+
+/* SWITCH */
+.switch {
+
+    position: relative;
+
+    width: 45px;
+
+    height: 24px;
+
+}
+
+.switch input {
+
+    opacity: 0;
+
+}
+
+.slider {
+
+    position: absolute;
+
+    cursor: pointer;
+
+    top: 0;
+
+    left: 0;
+
+    right: 0;
+
+    bottom: 0;
+
+    background: #334155;
+
+    border-radius: 30px;
+
+}
+
+.slider:before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 18px;
+
+    height: 18px;
+
+    left: 3px;
+
+    top: 3px;
+
+    background: white;
+
+    border-radius: 50%;
+
+    transition: 0.3s;
+
+}
+
+.switch input:checked + .slider {
+
+    background: var(--green);
+
+}
+
+.switch input:checked + .slider:before {
+
+    transform: translateX(20px);
+
+}
+
+
+/* SAVE BUTTON */
+button#saveSettingsBtn {
+
+    width: 100%;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    margin-top: 10px;
+
+}

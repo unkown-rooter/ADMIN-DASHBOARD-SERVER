@@ -1,0 +1,189 @@
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root {
+
+    --bg: #0b1220;
+    --card: #111b2e;
+
+    --text: #fff;
+    --muted: #94a3b8;
+
+    --green: #22c55e;
+    --red: #ef4444;
+    --yellow: #f59e0b;
+    --blue: #3b82f6;
+
+    --border: rgba(255,255,255,0.08);
+
+}
+
+
+/* =========================================================
+   BODY
+========================================================= */
+
+body {
+
+    margin: 0;
+
+    font-family: Poppins, sans-serif;
+
+    background: radial-gradient(circle at top, #1b4b48, #0b1220);
+
+    color: var(--text);
+
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.logs-container {
+
+    padding: 40px;
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.logs-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+
+}
+
+.logs-header h1 {
+
+    margin: 0;
+
+    font-size: 2rem;
+
+}
+
+.logs-header p {
+
+    color: var(--muted);
+
+}
+
+
+/* BUTTON */
+.logs-header button {
+
+    background: #ef4444;
+
+    border: none;
+
+    padding: 12px 18px;
+
+    border-radius: 10px;
+
+    color: white;
+
+    cursor: pointer;
+
+}
+
+
+/* =========================================================
+   FILTERS
+========================================================= */
+
+.logs-filters {
+
+    display: flex;
+
+    gap: 10px;
+
+    margin-bottom: 20px;
+
+    flex-wrap: wrap;
+
+}
+
+.logs-filters input,
+.logs-filters select {
+
+    padding: 10px;
+
+    border-radius: 10px;
+
+    border: 1px solid var(--border);
+
+    background: var(--card);
+
+    color: white;
+
+}
+
+
+/* =========================================================
+   LOG BOX
+========================================================= */
+
+.logs-box {
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 15px;
+
+    height: 70vh;
+
+    overflow-y: auto;
+
+    padding: 15px;
+
+}
+
+
+/* =========================================================
+   LOG ITEM
+========================================================= */
+
+.log-item {
+
+    padding: 10px;
+
+    border-bottom: 1px solid var(--border);
+
+    font-size: 14px;
+
+    display: flex;
+
+    gap: 10px;
+
+}
+
+
+/* COLORS */
+
+.log-info { color: var(--blue); }
+
+.log-success { color: var(--green); }
+
+.log-warning { color: var(--yellow); }
+
+.log-error { color: var(--red); }
+
+
+/* TIME */
+
+.log-time {
+
+    color: var(--muted);
+
+}
