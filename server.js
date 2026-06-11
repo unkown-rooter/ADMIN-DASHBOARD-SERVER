@@ -13,13 +13,13 @@ const PORT = process.env.PORT || 5000;
 const app = express();
 
 const authRoutes = require("./routes/auth");
+const dashboardRoutes = require("./routes/dashboard/dashboard");
 
 
-//const connectDB = require("./config/db");// this will be later upgraded for now lets comment it out and use the local database for testing purpose
-
+const connectDB = require("./config/db");
 
 // Connect to the Database
-// connectDB();
+connectDB();
 
 
 // Middleware setup 
@@ -33,8 +33,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Routes setup
 console.log("Setting up routes...");
 app.use("/api/auth", authRoutes);
-//app.use("/api/bots", botRoutes);
-//app.use("/api/logs", logRoutes);
+app.use("/api/dashboard", dashboardRoutes);
+
 
 // TEST ROUTE
 app.get("/health", (req, res) => {
@@ -42,6 +42,8 @@ app.get("/health", (req, res) => {
         status: "ONLINE"
     });
 });
+
+
 
 
 // Serve the Frontend

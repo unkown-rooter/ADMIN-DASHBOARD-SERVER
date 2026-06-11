@@ -17,7 +17,7 @@ const registerForm = document.getElementById("registerForm");
 
 const nameInput = document.getElementById("name");
 
-const unsernameInput = document.getElementById("username");
+const emailInput = document.getElementById("email");
 
 const passwordInput = document.getElementById("password");
 
@@ -50,7 +50,11 @@ registerForm.addEventListener("submit", async (e) => {
         alert("Passwords do not match ❌");
 
         return;
-
+        // disappear after 5 seconds
+        const timer = setTimeout(() => {
+            alert.style.display = "none";
+            clearTimeout(timer);
+        })
     }
 
     // ================================
@@ -61,7 +65,7 @@ registerForm.addEventListener("submit", async (e) => {
 
         name: nameInput.value,
 
-        username: usernameInput.value || nameInput.value,
+        email: emailInput.value || nameInput.value,
 
         password: passwordInput.value
 

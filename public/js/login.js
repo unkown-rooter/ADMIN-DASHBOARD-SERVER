@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const API_BASE_URL = "http://localhost:5000/api";
 
     const loginForm = document.getElementById("loginForm");
-    const usernameInput = document.getElementById("username");
+    const emailInput = document.getElementById("email");
     const passwordInput = document.getElementById("password");
     const loginBtn = document.getElementById("loginBtn");
     const messageBox = document.getElementById("messageBox");
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
 /* =================================================================
 *************************SINGLE LOGIN FUNCTION***************************
 ================================================================= */
-        async function loginUser(username, password) {
+        async function loginUser(email, password) {
 
         try {
             showLoading();
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const res = await fetch(`${API_BASE_URL}/auth/login`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ username, password })
+                body: JSON.stringify({ email, password })
             });
 
             const data = await res.json();
@@ -87,15 +87,15 @@ document.addEventListener("DOMContentLoaded", () => {
         loginForm.addEventListener("submit", (e) => {
             e.preventDefault();
 
-            const username = usernameInput.value.trim();
+            const email = emailInput.value.trim();
             const password = passwordInput.value.trim();
 
-            if (!username || !password) {
+            if (!email || !password) {
                 showMessage("Please fill all fields", "error");
                 return;
             }
 
-            loginUser(username, password);
+            loginUser(email, password);
         });
     }
 /* =================================================================

@@ -8,7 +8,7 @@
    API CONFIGURATION
 ========================================================= */
 
-const API_BASE_URL = "http://localhost:5000/api/dashboard/status";
+const API_BASE_URL = "http://localhost:5000/api/dashboard";
 const SOCKET_URL = "http://localhost:5000";
 
 
@@ -185,7 +185,7 @@ async function fetchDashboardStats() {
 
     try {
 
-        const data = await apiRequest("/dashboard/stats");
+        const data = await apiRequest("/stats");
 
         updateDashboardStats(data);
 
@@ -663,7 +663,7 @@ async function checkServerConnection() {
 
     try {
 
-        const response = await fetch(`${API_BASE_URL}/health`);
+        const response = await fetch("http://localhost:5000/api/dashboard/health");
 
         if (!response.ok) {
             throw new Error("Server Offline");
