@@ -57,15 +57,30 @@ document.getElementById("offlineBotsCount");
 const totalBotsCount =
 document.getElementById("totalBotsCount");
 
-/** serverStatus: This element displays the current status of the backend server (ONLINE/OFFLINE).
-activeBotsCount: This element shows the total number of active bots currently running.
-telegramBotsCount: This element displays the count of Telegram bots that are active.
- * 
- */
+/* =========================================================
+   --------------------- DASHBOARD CONTAINER
+========================================================= */
+dashboardContainer.addEventListener("click", async (event) => {
+  const button = event.target.closest("[data-action]");
 
+  if (!button) return;
 
+  const action = button.dataset.action;
 
+  if (action === "start-bot") {
+    console.log("Start bot clicked");
+  }
 
+  if (action === "stop-bot") {
+
+    console.log("Stop bot clicked");
+  }
+
+  if (action === "restart-bot") {
+    console.log("Restart bot clicked");
+  }
+
+});
 
 
 
@@ -98,7 +113,7 @@ async function initializeDashboard() {
             fetchBots(),
             fetchLogs()
         ]);
-        console.log("Promise took place.");
+        
         
         // Setup Event Listeners
         setupEventListeners(); // this should be called after fetching initial data to ensure buttons are available
@@ -457,6 +472,13 @@ function addLog(message) {
 
 }
 
+/*=========================================================
+   HELPERS
+==========================================================*/
+function wait(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 
 /* =========================================================
    BOT ACTIONS
@@ -468,7 +490,9 @@ async function startAllBots() {
         endpoint: "/bots/start",
         button: startBotBtn,
         loadingText: "Starting...",
-        successMessage: "All bots started"
+        //time for loading
+        timeLoading: 5000,
+        successMessage: "All bots started successfully"
     });
 
 }
@@ -479,7 +503,8 @@ async function stopAllBots() {
         endpoint: "/bots/stop",
         button: stopBotBtn,
         loadingText: "Stopping...",
-        successMessage: "All bots stopped"
+        timeLoading: 5000,
+        successMessage: "All bots stopped successfully"
     });
 
 }
@@ -490,7 +515,8 @@ async function restartAllBots() {
         endpoint: "/bots/restart",
         button: restartBotBtn,
         loadingText: "Restarting...",
-        successMessage: "All bots restarted"
+        timeLoading: 5000,
+        successMessage: "All bots restarted successfully"
     });
 
 }
@@ -504,36 +530,36 @@ async function executeBotAction({
     endpoint,
     button,
     loadingText,
-    successMessage
+    successMessage,
+    timeLoading = 2000
 }) {
 
-    const originalText = button.innerHTML;
+    const originalText = button.textContent;
 
     try {
-
-        showLoading(button, loadingText);
+        button.disabled = true;
+        button.textContent = loadingText;
 
         await apiRequest(endpoint, {
             method: "POST"
         });
 
+        await wait(timeLoading);
+
         showSuccess(successMessage);
-
-        await fetchBots();
-
-        await fetchDashboardStats();
-
     } catch (error) {
 
-        showError(error.message);
+        showError("Action failed");
 
     } finally {
 
-        hideLoading(button, originalText);
+        button.disabled = false;
+        button.textContent = originalText;
 
     }
 
-}
+}     
+
 
 
 /* =========================================================
@@ -790,7 +816,13 @@ function sanitizeHTML(value) {
 /* =========================================================
    LOADING STATE
 ========================================================= */
-
+/**
+ *  This function is used to show a loading state on a button.
+ *  it disables the button and replaces its innerHTML with a spinner and loading text.
+ * its used on different parts of the dashboard to indicate that an action is in progress.
+ *  time for loading.
+ * 
+ */
 function showLoading(button, text = "Loading...") {
 
     if (!button) return;
@@ -800,10 +832,10 @@ function showLoading(button, text = "Loading...") {
     button.dataset.originalText = button.innerHTML;
 
     button.innerHTML = `
-        <i class="fa-solid fa-spinner fa-spin"></i>
+        <i class="fa-solid fa-spinner fa-spin"></i>     
         ${text}
     `;
-
+    
 }
 
 
@@ -828,11 +860,17 @@ function hideLoading(button, fallbackText = "Done") {
 ========================================================= */
 
 function showSuccess(message) {
+    const popup = document.createElement("div");
 
-    console.log("SUCCESS:", message);
+    popup.textContent = message;
+    popup.className = "success-popup";
 
-    addLog(message);
+    document.body.appendChild(popup);
 
+    setTimeout(() => {
+        popup.remove();
+    }, 3000);
+    
 }
 
 

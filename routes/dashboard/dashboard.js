@@ -56,4 +56,30 @@ res.json([
 ]);
 });
 
+/* =========================
+-------BOT ACTIONS----------
+========================= */
+router.post("/bots/start", (req, res) => {
+    res.json({
+        success: true,
+        message: "ALL bots started successfully"
+    });
+});
+
+router.post("/bots/stop", (req, res) => {
+    res.json({
+        success: true,
+        message: "ALL bots stopped successfully"
+    });
+});
+
+router.post("/bots/restart", (req, res) => {
+    res.json({
+        success: true,
+        message: "ALL bots restarted successfully"
+    });
+});
+
+
+
 module.exports = router;

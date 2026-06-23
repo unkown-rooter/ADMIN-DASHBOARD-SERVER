@@ -36,28 +36,34 @@ app.use("/api/auth", authRoutes);
 app.use("/api/dashboard", dashboardRoutes);
 
 
-// TEST ROUTE
+// Serve the Frontend
+app.get('/', (req, res) => {
+    console.log(`Received request for ${req.url}`);
+    res.sendFile(
+        path.join(__dirname, 'public', 'index.html'));
+});
+// LOGIN ROUTE
+app.get('/login', (req, res) => {
+    console.log(`Received request for ${req.url}`);
+    res.sendFile(
+        path.join(__dirname, 'public', 'login.html'));
+});
+
+// REGISTER ROUTE
+app.get('/register', (req, res) => {
+    console.log(`Received request for ${req.url}`);
+    res.sendFile(
+        path.join(__dirname, 'public', 'register.html'));
+});
+
+
+
+// HEALTH CHECK
 app.get("/health", (req, res) => {
     res.json({
         status: "ONLINE"
     });
 });
-
-
-
-
-// Serve the Frontend
-app.get('/', (req, res) => {
-    console.log('Received request for ${req.url}');
-    res.sendFile(
-        path.join(__dirname, 'public', 'index.html'));
-});
-app.get('/login', (req, res) => {
-    console.log('Received request for ${req.url}');
-    res.sendFile(
-        path.join(__dirname, 'public', 'login.html'));
-});
-
 
 // Start the Server and Listen on the Port 5000
 app.listen(PORT, () => {
